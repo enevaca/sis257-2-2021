@@ -5,17 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo SIS257 Básico</title>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        
+    </style>
 </head>
-<body style="background-color: powderblue;">
-    <h1 style="background-color: slateblue; color: white; text-align: center;">Esto es un encabezado h1</h1>
-    <h2 style="color: green; font-family: Arial; text-align: right;">Esto es un encabezado h2</h2>
+<body>
+    <h1>Esto es un encabezado h1</h1>
+    <h2>Esto es un encabezado h2</h2>
     <h3 style="font-family: Georgia;">Esto es un encabezado h3</h3>
-    <h4 style="border: 5px dashed red;"><i>Esto es un encabezado h4</i></h4>
+    <h4 id="miH4"><i>Esto es un encabezado h4</i></h4>
     <h5 style="background-color: hsl(240, 0%, 50%);">Esto es un encabezado h5</h5>
     <h6>Esto es un encabezado h6</h6>
 
-    <p>Parrafo para probar GIT</p>
-    <p style="font-size: 1.5rem;"><b>Esto es un párrafo</b></p>
+    <p class="parrafo">Parrafo para probar GIT</p>
+    <p class="parrafo"><b>Esto es un párrafo</b></p>
     <p style="font-weight: bold;">Este es otro párrafo <del>Texto ELIMINADO</del> <sub>Text SUB</sub> <sup>Texto SUP</sup> </p>
     <p>El objetivo es: <q>Esto es una cita</q></p>
     <blockquote cite="https://usfx.bo">El Centro de Competencia OH TARGET - USFX, es una estrategia para promover el enfoque “Una Salud” (One Health) dentro...</blockquote>
@@ -23,7 +27,7 @@
     <!-- <address>Calle Junin N° 164</address> -->
     <!-- <p><cite>HTML 5</cite> por XX</p> -->
     <a href="https://usfx.bo" target="_black">Este es el enlace al sitio web de la USFX</a>
-    <img src="./images/logo_linux.png" alt="Logo Linux" width="120">
+    <img class="centrarImg" src="./images/logo_linux.png" alt="Logo Linux" width="120">
     <br>
     <button>Clic Aquí</button>
     <ol>
@@ -31,5 +35,67 @@
         <li>Fundamentos de la Progrmación</li>
         <li>Redes II</li>
     </ol>
+    <script src="./scripts.js"></script>
+    <script>
+        // Esto es un comentario que no imprime en pantalla
+        /*
+            Est es un comentario 
+            en varias línea
+        */
+        // Tipado dinámico
+        var entero = 25;
+        var cadena = "Hola Mundo";
+        var valor = true;
+        console.log(entero, cadena, valor);
+
+        // Case sensitive
+        var cadena1 = "a", Cadena1 = "A";
+        console.log(cadena1, Cadena1);
+
+        // Objects
+        var miAuto = new Object();
+        miAuto.marca = "Toyota";
+        miAuto.año = 2010;
+        miAuto.placa = "2545-JKK";
+        console.log(miAuto);
+
+        for(let propiedad in miAuto) console.log(propiedad);
+        
+        // Cadenas
+        cadena = cadena + " y algo más";
+        var cadena3 = `${cadena}. Otra forma de concatenar  `;
+        var sinEspaciosExternos = cadena3.trim();
+        var mayusculas = cadena3.toUpperCase();
+        var minusculas = cadena3.toLowerCase();
+        var longitudCadena = cadena3.length;
+        var reemplazo = cadena3.replace(' ', '*');
+        console.log(cadena, cadena3, longitudCadena, reemplazo); 
+        console.log(sinEspaciosExternos, mayusculas, minusculas);
+        console.log("Contiene? ", minusculas.includes("otra"));
+
+        // Estructuras de control
+        if (entero > 0) {
+            let variable1 = 1;    
+            const constante1 = 2;
+            var otraVariable = 5.5;
+            console.log(variable1, constante1);
+        }
+        else console.log(otraVariable);
+
+        for(let i=0; i<5; i++) { }
+
+        while(entero > 0) { console.log("while "); entero = -1; }
+
+        // Funciones
+        function sumar(num1, num2) {
+            return num1 + num2;
+        }
+        console.log("La suma es: " + sumar(5, 9));
+
+        // POO
+        var rectangulo = new Rectangulo(0, 5, 7);
+        console.log(`El área del rectángulo es: ${rectangulo.area()}, el perimetro es ${rectangulo.perimetro()}`);
+        Rectangulo.prueba();
+    </script>
 </body>
 </html>

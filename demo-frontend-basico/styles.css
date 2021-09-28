@@ -1,0 +1,30 @@
+body {
+  background-color: powderblue;
+}
+h1 {
+  background-color: slateblue;
+  color: white;
+  text-align: center;
+}
+h2 {
+  color: green;
+  font-family: Arial;
+  text-align: right;
+}
+
+#miH4 {
+    border: 5px dashed red; 
+    margin: 20px 80px 10px 30px; 
+    padding: 10px 5px 10px 30px;
+}
+
+.parrafo {
+    color: rgb(230, 15, 15);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+}
+
+.centrarImg {
+    margin: 0 auto;
+    display: block;
+}
