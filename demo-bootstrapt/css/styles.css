@@ -1,0 +1,18 @@
+:root {
+    --bkg-primary: #bd494d;
+    --bkg-secondary: #b98889;
+    --bkg-other: gray;
+}
+#home {
+    background-color: var(--bkg-primary);
+}
+#default-navbar {
+    background-color: var(--bkg-primary) !important;
+}
+#default-navbar .nav-link,
+#default-navbar .navbar-brand {
+    color: white;
+}
+#home-carrousell .carousel-item {
+    height: 300px;
+}
