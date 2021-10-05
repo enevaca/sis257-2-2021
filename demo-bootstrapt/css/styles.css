@@ -1,5 +1,6 @@
 :root {
     --bkg-primary: #bd494d;
+    --bkg-primary-dark: #a1282c;
     --bkg-secondary: #b98889;
     --bkg-other: gray;
 }
@@ -7,7 +8,7 @@
     background-color: var(--bkg-primary);
 }
 #default-navbar {
-    background-color: var(--bkg-primary) !important;
+    background-color: var(--bkg-primary-dark) !important;
 }
 #default-navbar .nav-link,
 #default-navbar .navbar-brand {

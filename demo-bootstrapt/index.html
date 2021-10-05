@@ -6,13 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Demo BootStrap</title>
-  <link href="css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.1/css/all.min.css"
+    integrity="sha512-ioRJH7yXnyX+7fXTQEKPULWkMn3CqMcapK0NNtCN8q//sW7ZeVFcbMJ9RvX99TwDg6P8rAH2IqUSt2TLab4Xmw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body id="home">
-  <div class="container">
+  <div class="container mb-3">
     <!-- Navbar -->
     <nav id="default-navbar" class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
@@ -52,7 +54,8 @@
     <section id="carrousel-sec">
       <div id="home-carrousell" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#home-carrousell" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#home-carrousell" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#home-carrousell" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#home-carrousell" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
@@ -92,7 +95,7 @@
 
     <nav aria-label="breadcrumb" class="mt-2">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item active" style="color: white;" aria-current="page" >Inicio</li>
+        <li class="breadcrumb-item active" style="color: white;" aria-current="page">Inicio</li>
         <li class="breadcrumb-item active" style="color: white;" aria-current="page">Cards</li>
       </ol>
     </nav>
@@ -104,8 +107,12 @@
           <img src="./images/turismo1.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <button type="button" class="btn btn-primary">Reservar</button>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <button type="button" class="btn btn-primary" onclick="openModal()" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Realiza tu reserva">
+              <i class="fas fa-paper-plane"></i> Reservar
+            </button>
             <span class="badge bg-secondary">5</span> Disponibles
           </div>
         </div>
@@ -115,8 +122,12 @@
           <img src="./images/turismo2.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <button type="button" class="btn btn-primary">Reservar</button>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <button type="button" class="btn btn-primary" onclick="openModal()" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Realiza tu reserva">
+              <i class="fas fa-paper-plane"></i> Reservar
+            </button>
             <span class="badge bg-secondary">5</span> Disponibles
           </div>
         </div>
@@ -126,8 +137,12 @@
           <img src="./images/turismo3.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-            <button type="button" class="btn btn-primary">Reservar</button>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+              content.</p>
+            <button type="button" class="btn btn-primary" onclick="openModal()" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Realiza tu reserva">
+              <i class="fas fa-paper-plane"></i> Reservar
+            </button>
             <span class="badge bg-secondary">5</span> Disponibles
           </div>
         </div>
@@ -137,8 +152,12 @@
           <img src="./images/turismo4.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <button type="button" class="btn btn-primary">Reservar</button>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <button type="button" class="btn btn-primary" onclick="openModal()" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Realiza tu reserva">
+              <i class="fas fa-paper-plane"></i> Reservar
+            </button>
             <span class="badge bg-secondary">5</span> Disponibles
           </div>
         </div>
@@ -148,8 +167,12 @@
           <img src="./images/turismo5.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <button type="button" class="btn btn-primary">Reservar</button>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <button type="button" class="btn btn-primary" onclick="openModal()" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Realiza tu reserva">
+              <i class="fas fa-paper-plane"></i> Reservar
+            </button>
             <span class="badge bg-secondary">5</span> Disponibles
           </div>
         </div>
@@ -159,17 +182,169 @@
           <img src="./images/turismo6.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <button type="button" class="btn btn-primary">Reservar</button>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <button type="button" class="btn btn-primary" onclick="openModal()" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Realiza tu reserva">
+              <i class="fas fa-paper-plane"></i> Reservar
+            </button>
             <span class="badge bg-secondary">5</span> Disponibles
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Reservación</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form class="row">
+              <div class="mb-3">
+                <label for="txtEmail" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="txtEmail" placeholder="name@example.com">
+              </div>
+              <div class="mb-3">
+                <label for="txtName" class="form-label">Nombres</label>
+                <input type="text" class="form-control" id="txtName" placeholder="Juan Pérez">
+              </div>
+              <div class="mb-3">
+                <label for="txtName" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="txtName" placeholder="*******">
+              </div>
+              <div class="mb-3">
+                <label for="txtArea" class="form-label">Biografía</label>
+                <textarea class="form-control" id="txtArea" rows="2"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Seleccione un archivo</label>
+                <input class="form-control" type="file" id="formFile">
+              </div>
+              <select class="form-select" aria-label="Opción">
+                <option selected>Seleccione una opción</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Enviarme avisos por email
+                </label>
+              </div>
+              <div class="mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Masculino
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Femenino
+                  </label>
+                </div>
+              </div>
+              <div>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellido</th>
+                      <th scope="col">Usuario</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td colspan="2">Larry the Bird</td>
+                      <td>@twitter</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellido</th>
+                      <th scope="col">Usuario</th>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-bs-toggle="tooltip"
+              data-bs-placement="left" title="Cerrar ventana">
+              <i class="fas fa-window-close"></i> Cerrar</button>
+            <button type="button" class="btn btn-success" onclick="aceptar()" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Confirmar y enviar">
+              <i class="fas fa-save"></i> Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+        <div class="toast-header">
+          <strong class="me-auto">Mensaje</strong>
+          <small>OK</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Operación confirmada.
+        </div>
+      </div>
+    </div>
+    <footer>
+      <span class="label">
+        Todos los derechos reservados 2021
+      </span>
+    </footer>
   </div>
-  <script src="js/bootstrap.bundle.min.js"
-    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-    crossorigin="anonymous"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+
+    var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
+      keyboard: false
+    });
+    function openModal() {
+      myModal.show();
+    }
+
+    function aceptar() {
+      var toastLiveExample = document.getElementById('liveToast');
+      var toast = new bootstrap.Toast(toastLiveExample);
+      toast.show();
+
+      myModal.hide();
+    }
+  </script>
 </body>
 
 </html>
