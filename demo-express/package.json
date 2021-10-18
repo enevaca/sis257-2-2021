@@ -1,0 +1,24 @@
+{
+  "name": "demo-express",
+  "version": "1.0.0",
+  "description": "Demo Express.js SIS257",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "express.js"
+  ],
+  "author": "SIS257",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
