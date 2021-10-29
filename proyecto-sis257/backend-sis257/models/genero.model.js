@@ -1,26 +1,25 @@
 var sql = require("./db");
 
-class Interprete {
-  constructor(interprete) {
-    this.nombre = interprete.nombre;
-    this.nacionalidad = interprete.nacionalidad;
+class Genero {
+  constructor(genero) {
+    this.descripcion = genero.descripcion;
   }
 
-  static create = (newInterprete, result) => {
-    sql.query("INSERT INTO interpretes SET ?", newInterprete, (err, res) => {
+  static create = (newGenero, result) => {
+    sql.query("INSERT INTO generos SET ?", newGenero, (err, res) => {
       if (err) {
         console.log("error", err);
         result(err, null);
         return;
       }
 
-      console.log("Intérprete creado", { id: res.insertId });
-      result(null, { id: res.insertId, ...newInterprete });
+      console.log("Género creado", { id: res.insertId });
+      result(null, { id: res.insertId, ...newGenero });
     });
   };
 
   static findById = (id, result) => {
-    sql.query(`SELECT * FROM interpretes WHERE id = ${id}`, (err, res) => {
+    sql.query(`SELECT * FROM generos WHERE id = ${id}`, (err, res) => {
       if (err) {
         console.log("error", err);
         result(err, null);
@@ -28,7 +27,7 @@ class Interprete {
       }
 
       if (res.length) {
-        console.log("Intérprete encontrado", res[0]);
+        console.log("Género encontrado", res[0]);
         result(null, res[0]);
         return;
       }
@@ -38,22 +37,22 @@ class Interprete {
   };
 
   static getAll = (result) => {
-    sql.query("SELECT * FROM interpretes", (err, res) => {
+    sql.query("SELECT * FROM generos", (err, res) => {
       if (err) {
         console.log("error", err);
         result(err, null);
         return;
       }
 
-      console.log("Lista de intérpretes");
+      console.log("Lista de géneros");
       result(null, res);
     });
   };
 
-  static updateById = (id, interprete, result) => {
+  static updateById = (id, genero, result) => {
     sql.query(
-      "UPDATE interpretes SET nombre = ?, nacionalidad = ? WHERE id = ?",
-      [interprete.nombre, interprete.nacionalidad, id],
+      "UPDATE generos SET descripcion = ? WHERE id = ?",
+      [genero.descripcion, id],
       (err, res) => {
         if (err) {
           console.log("error", err);
@@ -66,14 +65,14 @@ class Interprete {
           return;
         }
 
-        console.log("Intérprete actualizado", { id, ...interprete });
-        result(null, { id, ...interprete });
+        console.log("Género actualizado", { id, ...genero });
+        result(null, { id, ...genero });
       }
     );
   };
 
   static remove = (id, result) => {
-    sql.query("DELETE FROM interpretes WHERE id = ?", id, (err, res) => {
+    sql.query("DELETE FROM generos WHERE id = ?", id, (err, res) => {
       if (err) {
         console.log("error", err);
         result(err, null);
@@ -85,23 +84,23 @@ class Interprete {
         return;
       }
 
-      console.log("Intérprete eliminado con id: ", id);
+      console.log("Género eliminado con id: ", id);
       result(null, res);
     });
   };
 
   static removeAll = (result) => {
-    sql.query("DELETE FROM interpretes", (err, res) => {
+    sql.query("DELETE FROM generos", (err, res) => {
       if (err) {
         console.log("error", err);
         result(err, null);
         return;
       }
 
-      console.log(`${res.affetedRows} Intérpretes eliminados`);
+      console.log(`${res.affetedRows} Géneros eliminados`);
       result(null, res);
     });
   };
 }
 
-module.exports = Interprete;
+module.exports = Genero;

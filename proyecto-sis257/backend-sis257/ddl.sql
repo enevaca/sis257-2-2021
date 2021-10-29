@@ -3,7 +3,7 @@ DROP TABLE canciones;
 DROP TABLE albums;
 DROP TABLE generos;
 DROP TABLE interpretes;
-
+canciones
 CREATE TABLE interpretes (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(200) NOT NULL,
@@ -27,7 +27,9 @@ CREATE TABLE canciones (
   nombre VARCHAR(100) NOT NULL,
   duracion TIMESTAMP NOT NULL,
   tags VARCHAR(250) NULL DEFAULT '',
-  url VARCHAR(250) NULL DEFAULT ''
+  url VARCHAR(250) NULL DEFAULT '',
+  CONSTRAINT fk_canciones_albums FOREIGN KEY(id_album) REFERENCES albums(id),
+  CONSTRAINT fk_canciones_generos FOREIGN KEY(id_genero) REFERENCES generos(id)  
 );
 CREATE TABLE usuarios (
   id INT AUTO_INCREMENT PRIMARY KEY,
