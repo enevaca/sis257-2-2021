@@ -1,17 +1,18 @@
 const express = require("express");
 const router = express.Router();
 const album = require("../controllers/album.controller");
+const { authenticateToken } = require("../controllers/jwt.controller");
 
-router.post("/", album.create);
+router.post("/", authenticateToken, album.create);
 
-router.get("/", album.findAll);
+router.get("/", authenticateToken, album.findAll);
 
-router.get("/:albumId", album.findOne);
+router.get("/:albumId", authenticateToken, album.findOne);
 
-router.put("/:albumId", album.update);
+router.put("/:albumId", authenticateToken, album.update);
 
-router.delete("/:albumId", album.delete);
+router.delete("/:albumId", authenticateToken, album.delete);
 
-router.delete("/", album.deleteAll);
+router.delete("/", authenticateToken, album.deleteAll);
 
 module.exports = router;

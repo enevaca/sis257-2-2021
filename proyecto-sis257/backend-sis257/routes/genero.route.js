@@ -1,17 +1,18 @@
 const express = require("express");
 const router = express.Router();
 const genero = require("../controllers/genero.controller");
+const { authenticateToken } = require("../controllers/jwt.controller");
 
-router.post("/", genero.create);
+router.post("/", authenticateToken, genero.create);
 
-router.get("/", genero.findAll);
+router.get("/", authenticateToken, genero.findAll);
 
-router.get("/:generoId", genero.findOne);
+router.get("/:generoId", authenticateToken, genero.findOne);
 
-router.put("/:generoId", genero.update);
+router.put("/:generoId", authenticateToken, genero.update);
 
-router.delete("/:generoId", genero.delete);
+router.delete("/:generoId", authenticateToken, genero.delete);
 
-router.delete("/", genero.deleteAll);
+router.delete("/", authenticateToken, genero.deleteAll);
 
 module.exports = router;

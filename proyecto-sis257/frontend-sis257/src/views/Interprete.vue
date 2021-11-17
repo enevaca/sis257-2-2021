@@ -62,6 +62,8 @@
   </div>
 </template>
 <script>
+const token =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im52YWNhIiwiY2hlY2siOnRydWUsImlhdCI6MTYzNzEwMDE1OCwiZXhwIjoxNjM3MTAxOTU4fQ.mOOmRQ436wfZJpPrQRC56p-QopDVii5BoqMdOjYI6DE";
 export default {
   data() {
     return {
@@ -81,7 +83,13 @@ export default {
   },
   methods: {
     async getInterpretes() {
-      await fetch("http://localhost:3000/api/interpretes")
+      await fetch("http://localhost:3000/api/interpretes", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
         .then((response) => response.json())
         .then((data) => (this.interpretes = data));
     },
@@ -93,7 +101,10 @@ export default {
       if (r == true) {
         await fetch("http://localhost:3000/api/interpretes/" + id, {
           method: "DELETE",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
         }).then(() => this.getInterpretes());
       }
     },

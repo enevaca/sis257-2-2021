@@ -28,8 +28,7 @@ const routes = [
       {
         path: "edit/:id",
         name: "InterpreteEdit",
-        component: () =>
-          import("../components/interprete/InterpreteEdit.vue"),
+        component: () => import("../components/interprete/InterpreteEdit.vue"),
       },
     ],
   },

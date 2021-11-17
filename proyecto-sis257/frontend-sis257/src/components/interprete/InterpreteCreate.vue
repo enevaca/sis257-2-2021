@@ -43,7 +43,8 @@
               </div>
               <div class="text-center mt-2">
                 <button type="submit" class="btn btn-primary">
-                  <ion-icon name="save-outline"></ion-icon> Enviar</button>
+                  <ion-icon name="save-outline"></ion-icon> Enviar
+                </button>
               </div>
             </form>
           </div>
@@ -52,7 +53,8 @@
     </div>
     <div class="text-left">
       <button class="btn btn-link" @click="goBack">
-        <ion-icon name="arrow-back-outline"></ion-icon> Volver</button>
+        <ion-icon name="arrow-back-outline"></ion-icon> Volver
+      </button>
     </div>
   </div>
 </template>
@@ -73,13 +75,16 @@ export default {
     async sendInterprete() {
       await fetch("http://localhost:3000/api/interpretes", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im52YWNhIiwiY2hlY2siOnRydWUsImlhdCI6MTYzNzEwMDE1OCwiZXhwIjoxNjM3MTAxOTU4fQ.mOOmRQ436wfZJpPrQRC56p-QopDVii5BoqMdOjYI6DE`,
+        },
         body: JSON.stringify(this.interprete),
       }).then(() => this.$router.push("/interpretes"));
     },
     goBack() {
       this.$router.go(-1);
-    }
+    },
   },
 };
 </script>

@@ -1,17 +1,22 @@
 const express = require("express");
 const router = express.Router();
+const { withJWTAuthMiddleware } = require("express-kun");
+
 const interprete = require("../controllers/interprete.controller");
+const { authenticateToken } = require("../controllers/jwt.controller");
+const { SECRET_TOKEN } = require("../config/config");
+const protectedRouter = withJWTAuthMiddleware(router, SECRET_TOKEN);
 
-router.post("/", interprete.create);
+protectedRouter.post("/", interprete.create);
 
-router.get("/", interprete.findAll);
+protectedRouter.get("/", interprete.findAll);
 
-router.get("/:interpreteId", interprete.findOne);
+protectedRouter.get("/:interpreteId", interprete.findOne);
 
-router.put("/:interpreteId", interprete.update);
+protectedRouter.put("/:interpreteId", interprete.update);
 
-router.delete("/:interpreteId", interprete.delete);
+protectedRouter.delete("/:interpreteId", interprete.delete);
 
-router.delete("/", interprete.deleteAll);
+protectedRouter.delete("/", interprete.deleteAll);
 
 module.exports = router;
