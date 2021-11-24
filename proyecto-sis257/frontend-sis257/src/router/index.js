@@ -32,6 +32,24 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/albums",
+    name: "Album",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Album.vue"),
+    children: [
+      {
+        path: "create",
+        name: "AlbumCreate",
+        component: () => import("../components/album/AlbumCreate.vue"),
+      },
+      {
+        path: "edit/:id",
+        name: "AlbumEdit",
+        component: () => import("../components/album/AlbumEdit.vue"),
+      },
+    ],
+  },
 ];
 
 const router = createRouter({

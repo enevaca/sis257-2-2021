@@ -22,7 +22,7 @@
         </div>
         <div class="col-12 text-left">
           <router-link :to="{ name: 'InterpreteCreate', params: {} }"
-            ><ion-icon name="add-outline"></ion-icon> Crear Nuevo</router-link
+            ><i class="bx bx-plus"></i> Crear Nuevo</router-link
           >
         </div>
       </div>
@@ -31,13 +31,15 @@
         <table class="table table-bordered table-striped" id="tableLista">
           <thead>
             <tr>
+              <th>N°</th>
               <th>Nombre</th>
               <th>Nacionalidad</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="interprete in interpretes" :key="interprete.id">
+            <tr v-for="(interprete, index) in interpretes" :key="interprete.id">
+              <td>{{ index + 1 }}</td>
               <td>{{ interprete.nombre }}</td>
               <td>{{ interprete.nacionalidad }}</td>
               <td>
@@ -45,13 +47,13 @@
                   class="btn btn-link"
                   @click="editInterprete(interprete.id)"
                 >
-                  <ion-icon name="create-outline"></ion-icon> Editar
+                  <i class="bx bx-edit"></i> Editar
                 </button>
                 <button
                   class="btn btn-link"
                   @click="deleteInterprete(interprete.id)"
                 >
-                  <ion-icon name="trash-outline"></ion-icon> Eliminar
+                  <i class="bx bx-trash"></i> Eliminar
                 </button>
               </td>
             </tr>
@@ -62,8 +64,8 @@
   </div>
 </template>
 <script>
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im52YWNhIiwiY2hlY2siOnRydWUsImlhdCI6MTYzNzEwMDE1OCwiZXhwIjoxNjM3MTAxOTU4fQ.mOOmRQ436wfZJpPrQRC56p-QopDVii5BoqMdOjYI6DE";
+import http from "@/services/http-common";
+
 export default {
   data() {
     return {
@@ -83,15 +85,9 @@ export default {
   },
   methods: {
     async getInterpretes() {
-      await fetch("http://localhost:3000/api/interpretes", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => (this.interpretes = data));
+      await http
+        .get("/interpretes")
+        .then((response) => (this.interpretes = response.data));
     },
     editInterprete(id) {
       this.$router.push("/interpretes/edit/" + id);
@@ -99,13 +95,9 @@ export default {
     async deleteInterprete(id) {
       var r = confirm("¿Está seguro que desea eliminar el registro?");
       if (r == true) {
-        await fetch("http://localhost:3000/api/interpretes/" + id, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }).then(() => this.getInterpretes());
+        await http
+          .delete("interpretes/" + id)
+          .then(() => this.getInterpretes());
       }
     },
     showParent(show) {

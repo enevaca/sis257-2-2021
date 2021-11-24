@@ -43,7 +43,7 @@
               </div>
               <div class="text-center mt-2">
                 <button type="submit" class="btn btn-primary">
-                  <ion-icon name="save-outline"></ion-icon> Modificar
+                  <i class="bx bx-save"></i> Modificar
                 </button>
               </div>
             </form>
@@ -53,14 +53,14 @@
     </div>
     <div class="text-left">
       <button class="btn btn-link" @click="goBack">
-        <ion-icon name="arrow-back-outline"></ion-icon> Volver
+        <i class="bx bx-left-arrow-alt"></i> Volver
       </button>
     </div>
   </div>
 </template>
 <script>
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im52YWNhIiwiY2hlY2siOnRydWUsImlhdCI6MTYzNzEwMDE1OCwiZXhwIjoxNjM3MTAxOTU4fQ.mOOmRQ436wfZJpPrQRC56p-QopDVii5BoqMdOjYI6DE";
+import http from "@/services/http-common";
+
 export default {
   data() {
     return {
@@ -74,29 +74,15 @@ export default {
   async created() {
     this.$emit("showParent", false);
     this.interpreteId = this.$route.params.id | 0;
-    await fetch("http://localhost:3000/api/interpretes/" + this.interpreteId, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => (this.interprete = data));
+    await http
+      .get("interpretes/" + this.interpreteId)
+      .then((response) => (this.interprete = response.data));
   },
   methods: {
     async sendInterprete() {
-      await fetch(
-        "http://localhost:3000/api/interpretes/" + this.interpreteId,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(this.interprete),
-        }
-      ).then(() => this.$router.push("/interpretes"));
+      await http
+        .put("interpretes/" + this.interpreteId, this.interprete)
+        .then(() => this.$router.push("/interpretes"));
     },
     goBack() {
       this.$router.go(-1);

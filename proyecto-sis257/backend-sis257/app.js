@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // routes
 app.use('/', require('./routes/index'));
-app.use('/api/usuarios', require('./routes/users'));
+app.use('/api/usuarios', require('./routes/usuario'));
 app.use('/api/interpretes', require('./routes/interprete.route'));
 app.use('/api/generos', require('./routes/genero.route'));
 app.use('/api/albums', require('./routes/album.route'));
