@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
+import auth from "../services/AuthDataService";
 
 const routes = [
   {
@@ -12,6 +13,12 @@ const routes = [
     name: "About",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Login.vue"),
   },
   {
     path: "/interpretes",
@@ -55,6 +62,17 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const publicPages = ["/", "/login", "/about"];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = auth.getUserLogged();
+
+  if(authRequired && !loggedIn) {
+    return next("/login");
+  }
+  next();
 });
 
 export default router;

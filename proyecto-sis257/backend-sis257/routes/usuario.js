@@ -15,7 +15,7 @@ protectedRouter.get("/", usuario.findAll);
 
 protectedRouter.get("/:usuarioId", usuario.findOne);
 
-protectedRouter.get("/:usuario/:clave", usuario.findValidate);
+router.get("/:usuario/:clave", usuario.findValidate);
 
 protectedRouter.put("/:usuarioId", usuario.update);
 

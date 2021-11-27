@@ -1,8 +1,8 @@
 <template>
   <div>
-    <MyHeader />
+    <MyHeader :authenticate="authenticate" />
     <main id="main">
-      <router-view />
+      <router-view @update-user="updateUser" />
     </main>
     <hr />
     <MyFooter />
@@ -17,7 +17,19 @@
 <script>
 import MyFooter from "./components/layout/Footer.vue";
 import MyHeader from "./components/layout/Header.vue";
+import auth from  "./services/AuthDataService";
+
 export default {
   components: { MyHeader, MyFooter },
+  data() {
+    return {
+      authenticate: auth.getUserLogged()
+    }
+  },
+  methods: {
+    updateUser(user) {
+      this.authenticate = user;
+    }
+  },
 };
 </script>

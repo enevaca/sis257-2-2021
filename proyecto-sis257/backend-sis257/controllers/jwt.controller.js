@@ -1,24 +1,39 @@
 const jwt = require("jsonwebtoken");
-const { SECRET_TOKEN } = require("../config/config");
+const { SECRET_KEY, SECRET_TOKEN } = require("../config/config");
+const usuario = require("../models/usuario.model");
 
 exports.generateAccessToken = (req, res) => {
-  if (req.body.usuario == "nvaca" && req.body.clave == "HolaMundo123.") {
-    const payload = {
-      username: req.body.usuario,
-      check: true,
-    };
-
-    const token = jwt.sign(payload, SECRET_TOKEN, {
-      expiresIn: "30m",
-    });
-
-    res.send({
-      message: "Autenticación correcta",
-      token: token,
-    });
-  } else {
-    res.status(401).send({ message: "Usuario o contraseña incorrectos" });
-  }
+  const clave = require("crypto").createHmac("sha256", SECRET_KEY).update(req.body.clave).digest("hex");
+  var auth = usuario.findByUserPass(req.body.usuario, clave, (err, data) => {
+    if(err) {
+      res.status(500).send({
+        message: `Error al requerir el usuario ${req.params.usuario}`,
+      });
+    }
+    else {
+      if (data !== null) {
+        const payload = {
+          username: req.body.usuario,
+          check: true,
+        };
+    
+        const token = jwt.sign(payload, SECRET_TOKEN, {
+          expiresIn: "30m",
+        });
+    
+        res.send({
+          message: "Autenticación correcta",
+          id: data.id,
+          usuario: data.usuario,
+          rol: data.rol,
+          email: data.email,
+          token: token,
+        });
+      } else {
+        res.status(401).send({ message: "Usuario o contraseña incorrectos" });
+      }
+    }
+  });
 };
 
 exports.authenticateToken = (req, res, next) => {

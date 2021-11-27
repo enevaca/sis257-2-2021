@@ -21,7 +21,7 @@
             </li>
             <li><a class="nav-link scrollto" href="#services">Servicios</a></li>
             <li><a class="nav-link scrollto" href="#team">Equipo</a></li>
-            <li class="dropdown">
+            <li v-if="authenticate" class="dropdown">
               <a href="#"
                 ><span>Catálogos</span> <i class="bi bi-chevron-down"></i
               ></a>
@@ -48,10 +48,17 @@
                 <li><a href="#">Tema 6</a></li>
               </ul>
             </li>
-            <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
+            <li v-if="authenticate">
+              <a class="nav-link scrollto" href="#contact"
+                >Hola {{ currentUser }}</a
+              >
+            </li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
+        <router-link v-if="authenticate" to="/login" @click="logout"
+          >Cerrar Sesión</router-link
+        >
         <!-- .navbar -->
       </div>
     </header>
@@ -59,7 +66,25 @@
   </div>
 </template>
 <script>
+import auth from "../../services/AuthDataService";
+
 export default {
   name: "Header",
+  props: ["authenticate"],
+  methods: {
+    logout() {
+      auth.deleteUserLogged();
+      localStorage.setItem("token", null);
+      this.$router.go();
+    },
+  },
+  computed: {
+    currentUser() {
+      if (this.authenticate) {
+        var r = JSON.parse(auth.getUserLogged());
+        return r.user;
+      } else return "";
+    },
+  },
 };
 </script>
