@@ -66,7 +66,7 @@
   </div>
 </template>
 <script>
-import auth from "../../services/AuthDataService";
+import auth from "@/services/AuthDataService";
 
 export default {
   name: "Header",

@@ -92,7 +92,7 @@ export default {
     async deleteAlbum(id) {
       var r = confirm("¿Está seguro que desea eliminar el registro?");
       if (r == true) {
-        await http.delete("albums/" + id).then(() => this.getInterpretes());
+        await http.delete("albums/" + id).then(() => this.getAlbums());
       }
     },
     showParent(show) {
